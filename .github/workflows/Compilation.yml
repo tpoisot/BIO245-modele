@@ -1,3 +1,8 @@
+name: Compilation
+on:
+    push:
+        branches: ["main"]
+
 jobs:
   compilation:
     runs-on: ${{ matrix.os }}
