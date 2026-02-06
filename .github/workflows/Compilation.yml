@@ -20,7 +20,7 @@ jobs:
         run: julia -e 'import Pkg; Pkg.activate("."); Pkg.instantiate(); Pkg.add("Literate")'
         shell: bash
       - name: "Execute the document"
-        run: julia .assets/compile.jl
+        run: julia .assets/build.jl
         shell: bash
       - name: "Get the fonts"
         run: |
