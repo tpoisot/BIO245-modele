@@ -19,3 +19,7 @@ jobs:
       - name: "Add Literate"
         run: julia -e 'import Pkg; Pkg.activate("."); Pkg.instantiate(); Pkg.add("Literate")'
         shell: bash
+      - name: "Execute the document"
+        run: julia .assets/compile.jl
+        shell: bash
+    
