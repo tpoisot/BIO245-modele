@@ -22,4 +22,23 @@ jobs:
       - name: "Execute the document"
         run: julia .assets/compile.jl
         shell: bash
-    
+      - name: "Get the fonts"
+        run: |
+            wget https://github.com/alerque/libertinus/releases/download/v7.051/Libertinus-7.051.zip
+            unzip Libertinus-7.051.zip
+            mkdir -p ~/.fonts/
+            mv Libertinus-7.051/static/OTF/*.otf ~/.fonts/
+            fc-cache -fv
+      - name: "Download Typst"
+        run: |
+            wget https://github.com/typst/typst/releases/download/v0.14.1/typst-x86_64-unknown-linux-musl.tar.xz
+            tar -xvf typst-x86_64-unknown-linux-musl.tar.xz
+      - name: "Install pandoc"
+        uses: pandoc/actions/setup@v1
+      - name: "Run pandoc"
+        run: pandoc travail.md --pdf-engine=./typst-x86_64-unknown-linux-musl/typst -o travail.pdf --template=.assets/template.typ
+      - name: Upload the PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: Travail
+          path: travail.pdf

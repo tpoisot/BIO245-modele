@@ -45,7 +45,7 @@
 #show link: set text(font: "Libertinus Sans", fill: blue)
 #show heading.where(level: 2): set text(weight: 400)
 
-#image("logo.png", width: 3cm)
+#image(".assets/logo.png", width: 3cm)
 #set align(right)
 
 #v(6fr)
