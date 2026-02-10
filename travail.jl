@@ -14,10 +14,17 @@
 
 # # Introduction
 
+# # Présentation du modèle
+
+# # Implémentation
+
+# ## Packages nécessaires
+
 import Random
 Random.seed!(123456)
+using CairoMakie
 
-# # Présentation du modèle
+# ## Une autre section
 
 """
     foo(x, y)
@@ -25,10 +32,9 @@ Random.seed!(123456)
 Cette fonction ne fait rien.
 """
 function foo(x, y)
+    ## Cette ligne est un commentaire
     return nothing
 end
-
-# # Implémentation
 
 # # Présentation des résultats
 
