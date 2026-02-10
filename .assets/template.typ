@@ -98,6 +98,6 @@ $body$
 
 #context {
   if query(cite).dedup().len() > 0 {
-    bibliography("bibliography.bib", style: "american-physics-society", title: "Bibliographie")
+    bibliography("references.bib", style: "american-physics-society", title: "Bibliographie")
   }
 }
