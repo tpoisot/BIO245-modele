@@ -5,17 +5,13 @@ on:
 
 jobs:
     compilation:
-        runs-on: ${{ matrix.os }}
-        strategy:
-            matrix:
-                julia-version: [1]
-                os: [ubuntu-latest]
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
             - name: "Set up Julia"
               uses: julia-actions/setup-julia@v2
               with:
-                  version: ${{ matrix.julia-version }}
+                  version: 1
             - name: "Add Literate"
               run: julia -e 'import Pkg; Pkg.activate("."); Pkg.instantiate(); Pkg.add("Literate")'
               shell: bash
