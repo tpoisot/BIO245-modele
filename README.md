@@ -1,6 +1,10 @@
 # Dépôt modèle pour le cours BIO 2045
 
+<!-- Vous devrez supprimer les instructions, incluant ce commentaire -->
+
 ⚠️ **Important**: Vous devrez mettre à jour le document `README.md`, pour enlever les instructions d'installation, et ajouter les informations pertinentes pour le projet
+
+ℹ️ **Information**: [Guide d'utilisation de markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
 _Pour utiliser ce modèle, vous devez utiliser l'option "Use this template", puis "Create a new repository"_
 
@@ -18,8 +22,8 @@ _Les informations doivent être les suivantes. Les tags `bio2045` et `h26-devoir
 
 ![Capture d'écran de la création du nouveau dépôt](.assets/scrot-options.png)
 
-## Organisation du projet
+<!-- Vous devrez supprimer jusqu'à, et incluant ce commentaire -->
 
-ℹ️ **Information**: [Guide d'utilisation de markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+## Organisation du projet
 
 ## ETC
