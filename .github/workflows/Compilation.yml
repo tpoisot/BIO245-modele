@@ -12,10 +12,10 @@ jobs:
               uses: julia-actions/setup-julia@v2
               with:
                   version: 1
-            - name: "Add Literate"
+            - name: "Instantiate project and add Literate"
               run: julia -e 'import Pkg; Pkg.activate("."); Pkg.instantiate(); Pkg.add("Literate")'
               shell: bash
-            - name: "Execute the document"
+            - name: "Run the document and generate the .md script"
               run: julia --project .assets/build.jl
               shell: bash
             - name: "Get the Libertinus fonts"
@@ -29,7 +29,7 @@ jobs:
               run: |
                   wget https://github.com/cormullion/juliamono/releases/download/v0.062/JuliaMono-ttf.zip
                   unzip JuliaMono-ttf.zip
-                  mv JuliaMono-ttf/*.ttf ~/.fonts/
+                  mv JuliaMono*.ttf ~/.fonts/
                   fc-cache -fv
             - name: "Download Typst"
               run: |
@@ -37,7 +37,7 @@ jobs:
                   tar -xvf typst-x86_64-unknown-linux-musl.tar.xz
             - name: "Install pandoc"
               uses: pandoc/actions/setup@v1
-            - name: "Run pandoc"
+            - name: "Run pandoc to generate the PDF with the typst backend"
               run: pandoc travail.md --pdf-engine=./typst-x86_64-unknown-linux-musl/typst -o docs/travail.pdf --template=.assets/template.typ
             - name: Upload the PDF
               uses: actions/upload-artifact@v4
