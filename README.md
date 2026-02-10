@@ -8,6 +8,8 @@
 
 ℹ️ **Information**: [Guide d'utilisation de markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
+ℹ️ **Information**: Les références doivent aller dans le fichier `references.bib` au format bibtex, qui peut être généré par [Zotero](https://www.zotero.org/) ou [zoterobib](https://zbib.org/)
+
 _Pour utiliser ce modèle, vous devez utiliser l'option "Use this template", puis "Create a new repository"_
 
 ![Capture d'écran de l'option "Utiliser ce modèle"](.assets/scrot-use-this-template.png)
