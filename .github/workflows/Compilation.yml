@@ -18,6 +18,9 @@ jobs:
             - name: "Run the document and generate the .md script"
               run: julia --project .assets/build.jl
               shell: bash
+            - name: "Run ls -lah to check"
+              run: ls -lah
+              shell: bash
             - name: "Get the Libertinus fonts"
               run: |
                   wget https://github.com/alerque/libertinus/releases/download/v7.051/Libertinus-7.051.zip
