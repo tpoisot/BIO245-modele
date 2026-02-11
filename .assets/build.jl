@@ -8,4 +8,4 @@ cfg = Dict(
 )
 
 @info "Building to $(pwd())"
-Literate.markdown("travail.jl", outputdir=pwd(); config=cfg, flavor=Literate.CommonMarkFlavor())
+Literate.markdown("travail.jl", pwd(); config=cfg, flavor=Literate.CommonMarkFlavor())
