@@ -23,9 +23,12 @@ jobs:
               with:
                   name: Markdown
                   path: travail.md
-            - name: "Run ls -lah to check"
-              run: ls -lah
-              shell: bash
+            - name: "Install pandoc"
+              uses: pandoc/actions/setup@v1
+            - name: "Run pandoc to generate the typst file "
+              run: pandoc travail.md -o travail.typ --template=.assets/template.typ
+            - name: "Run pandoc to generate the html file"
+              run: pandoc travail.md -o docs/index.html
             - name: "Get the Libertinus fonts"
               run: |
                   wget https://github.com/alerque/libertinus/releases/download/v7.051/Libertinus-7.051.zip
@@ -43,21 +46,15 @@ jobs:
               run: |
                   wget https://github.com/typst/typst/releases/download/v0.14.1/typst-x86_64-unknown-linux-musl.tar.xz
                   tar -xvf typst-x86_64-unknown-linux-musl.tar.xz
-            - name: "Install pandoc"
-              uses: pandoc/actions/setup@v1
-            - name: "Run pandoc to generate the typst file "
-              run: pandoc travail.md -o travail.typ --template=.assets/template.typ
-            - name: "Run pandoc to generate the html file"
-              run: pandoc travail.md -o docs/index.html
+            - name: "Run typst to generate the PDF file"
+              run: ./typst-x86_64-unknown-linux-musl/typst compile travail.typ
             - name: Upload the typst file
               uses: actions/upload-artifact@v4
               with:
                   name: Typst
                   path: travail.typ
-            - name: "Run typst to generate the PDF file"
-              run: ./typst-x86_64-unknown-linux-musl/typst compile travail.typ
-            - name: "Run ls -lah to check again after compilation"
-              run: ls -lah
+            - name: "Move the figures to the docs folder"
+              run: cp travail-*.png docs
               shell: bash
             - name: "Moves the PDF to the docs/ folder"
               run: mv travail.pdf docs/travail.pdf
