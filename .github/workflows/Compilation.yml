@@ -45,8 +45,18 @@ jobs:
                   tar -xvf typst-x86_64-unknown-linux-musl.tar.xz
             - name: "Install pandoc"
               uses: pandoc/actions/setup@v1
-            - name: "Run pandoc to generate the PDF with the typst backend"
-              run: pandoc travail.md --pdf-engine=./typst-x86_64-unknown-linux-musl/typst -o travail.pdf --template=.assets/template.typ
+            - name: "Run pandoc to generate the typst file with pandoc"
+              run: pandoc travail.md -o travail.typ --template=.assets/template.typ
+            - name: Upload the typst file
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Typst
+                  path: travail.typ
+            - name: "Run typst to generate the PDF file"
+              run: ./typst-x86_64-unknown-linux-musl compile travail.typ
+            - name: "Run ls -lah to check again after compilation"
+              run: ls -lah
+              shell: bash
             - name: "Moves the PDF to the docs/ folder"
               run: mv travail.pdf docs/travail.pdf
             - name: Upload the PDF
