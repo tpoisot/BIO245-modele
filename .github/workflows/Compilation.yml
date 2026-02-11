@@ -18,6 +18,11 @@ jobs:
             - name: "Run the document and generate the .md script"
               run: julia --project .assets/build.jl
               shell: bash
+            - name: Upload the MD file
+              uses: actions/upload-artifact@v4
+              with:
+                  name: Markdown
+                  path: travail.md
             - name: "Run ls -lah to check"
               run: ls -lah
               shell: bash
