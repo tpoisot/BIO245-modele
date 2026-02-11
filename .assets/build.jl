@@ -7,4 +7,5 @@ cfg = Dict(
     "continue_on_error" => true,
 )
 
-Literate.markdown("travail.jl"; config=cfg, flavor=Literate.CommonMarkFlavor())
+@info "Building to $(pwd())"
+Literate.markdown("travail.jl", outputdir=pwd(); config=cfg, flavor=Literate.CommonMarkFlavor())
