@@ -33,6 +33,7 @@ Cette fonction ne fait rien.
 """
 function foo(x, y)
     ## Cette ligne est un commentaire
+    # cette ligne est un problème
     return nothing
 end
 
