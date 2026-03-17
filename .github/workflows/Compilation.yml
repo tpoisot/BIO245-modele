@@ -1,7 +1,13 @@
-name: Compilation
+name: Compilation du rapport (PDF)
 on:
     push:
         branches: ["main"]
+    pull_request:
+        branches: ["main"]
+
+permissions:
+    issues: write
+    pull-requests: write
 
 jobs:
     compilation:
@@ -60,10 +66,20 @@ jobs:
             - name: "Moves the PDF to the docs/ folder"
               run: mv travail.pdf docs/travail.pdf
             - name: Upload the PDF
+              id: pdf-upload
               uses: actions/upload-artifact@v4
               with:
                   name: Travail
                   path: docs/travail.pdf
+            - name: "Comment on PR with the pdf"
+              if: ${{ github.event_name == 'pull_request' }}
+              uses: mshick/add-pr-comment@v3
+              with:
+                message-id: REPORT_SUCCESS
+                message: "🤗 - le travail a été compilé avec succès"
+                attach-path: docs/travail.pdf
+                attach-name: "PDF compilé (au format zip)"
+                attach-text: '📎 [%ATTACH_NAME%](%ARTIFACT_URL%)'
             - name: Prepare the web pages
               id: deployment
               uses: actions/upload-pages-artifact@v3
@@ -71,6 +87,7 @@ jobs:
                   path: docs/
     publication:
         runs-on: ubuntu-latest
+        if: github.event_name == 'push'
         needs: compilation
         permissions:
             pages: write
@@ -80,5 +97,6 @@ jobs:
             url: ${{ steps.deployment.outputs.page_url }}
         steps:
             - name: Deploy to GitHub pages
+              if: ${{ github.event_name != 'pull_request' }}
               id: deployment
               uses: actions/deploy-pages@v4

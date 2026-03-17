@@ -24,6 +24,22 @@ import Random
 Random.seed!(123456)
 using CairoMakie
 
+# ## Inclure du code
+
+# Tous les fichiers dans le dossier `code` peuvent être ajoutés au travail
+# final. C'est par exemple utile pour déclarer l'ensemble des fonctions du
+# modèle hors du document principal.
+
+# Le contenu des fichiers est inclus avec 
+# ~~~
+# include("code/nom_fichier.jl")
+# ~~~
+
+# Attention! Il faut que le code soit inclus au bon endroit (avant que les
+# fonctions déclarées soient appellées).
+
+include("code/01_test.jl")
+
 # ## Une autre section
 
 """
@@ -46,4 +62,6 @@ hist(randn(100))
 
 # On peut aussi citer des références dans le document `references.bib`,
 # @ermentrout1993cellular -- la bibliographie sera ajoutée automatiquement à la
-# fin du document.
+# fin du document. Le format de la bibliographie est American Physics Society,
+# et les références seront correctement présentées dans ce format. Vous ne
+# devez/pouvez pas éditer la bibliographie à la main.

@@ -1,12 +1,9 @@
-name: Compilation
+name: Vérification du code (pull request)
 on:
-    push:
-        branches-ignore:
-            - 'main'
     pull_request:
 
 jobs:
-    compilation:
+    codecheck:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
