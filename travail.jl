@@ -46,6 +46,7 @@ Cette fonction ne fait rien.
 """
 function foo(x, y)
     ## Cette ligne est un commentaire
+    # test avec une erreur
     return nothing
 end
 
