@@ -14,16 +14,17 @@
     $endif$
     <title>$if(title)$$title$$endif$</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
-        .mainlink {
+        .documents {
             background-color: #fcfcfc;
             border: 1px solid #a0a0a0;
             border-radius: 3px;
             padding: 1em;
-            width: 100%;
-            text-align: center;
+            max-width: 500px;
             display: block;
-            margin: 2em 0em;
+            margin: 2em auto;
             margin-bottom: 5em;
         }
     </style>
@@ -33,18 +34,21 @@
 </head>
 
 <body>
-    
+
     $if(title)$
     <h1>$title$</h1>
     $endif$
 
     <section class="auteurs">
-    $for(auteurs)$
-    <div class="auteur">$auteurs.prenom$ $auteurs.nom$</div>
-    $endfor$
+        $for(auteurs)$
+        <div class="auteur">$auteurs.prenom$ $auteurs.nom$ --- <i class="ri-github-line"></i> <a href="https://github.com/$auteur.github$" target="_blank"/>@$auteur.github$</a></div>
+        $endfor$
     </section>
 
-    <a href="travail.pdf" class="mainlink">Version PDF</a>
+    <section class="documents">
+        <a href="travail.pdf" target="_blank"><i class="ri-file-pdf-2-line"></i> Version PDF</a><br />
+        <a href="https://github.com/$repository$" target="_blank"><i class="ri-github-fill"></i> Dépôt GitHub</a>
+    </section>
 
     <article>
         $body$

@@ -60,7 +60,6 @@ jobs:
                   name: Typst
                   path: travail.typ
             - name: "Move the figures to the docs folder"
-              continue-on-error: true
               run: cp travail-*.png docs
               shell: bash
             - name: "Moves the PDF to the docs/ folder"
@@ -71,15 +70,20 @@ jobs:
               with:
                   name: Travail
                   path: docs/travail.pdf
-            - name: "Comment on PR with the pdf"
+            - name: "Comment on PR with the pdf (if success)"
               if: ${{ github.event_name == 'pull_request' }}
               uses: mshick/add-pr-comment@v3
               with:
-                message-id: REPORT_SUCCESS
-                message: "🤗 - le travail a été compilé avec succès"
+                message-id: REPORT_ON_COMPILATION
+                message: |
+                    🤗 **Le travail a été compilé**
+                    
+                    Liste des changements: ${{ github.sha }}
+
+                    Lien vers le PDF
                 attach-path: docs/travail.pdf
-                attach-name: "PDF compilé (au format zip)"
-                attach-text: '📎 [%ATTACH_NAME%](%ARTIFACT_URL%)'
+                attach-name: "travail"
+                attach-text: '📎 [Travail (archive zip)](%ARTIFACT_URL%)'    
             - name: Prepare the web pages
               id: deployment
               uses: actions/upload-pages-artifact@v3
