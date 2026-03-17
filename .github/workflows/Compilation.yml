@@ -77,8 +77,8 @@ jobs:
                 message-id: REPORT_ON_COMPILATION
                 message: "🤗 Le travail a été compilé"
                 attach-path: docs/travail.pdf
-                attach-name: "PDF compilé (au format zip)"
-                attach-text: '📎 [%ATTACH_NAME%](%ARTIFACT_URL%)'    
+                attach-name: "travail"
+                attach-text: '📎 [Travail (archive zip)](%ARTIFACT_URL%)'    
             - name: Prepare the web pages
               id: deployment
               uses: actions/upload-pages-artifact@v3
