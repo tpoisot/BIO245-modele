@@ -78,10 +78,9 @@ jobs:
                 message: |
                     🤗 **Le travail a été compilé**
                     
-                    Le document a été créé à partir du commit ${{ github.sha }}
+                    Liste des changements: ${{ github.sha }}
 
-                    Vérifiez le statut de la vérification du code, pour confirmer que le code n'a pas émis de message d'erreur.
-
+                    Lien vers le PDF
                 attach-path: docs/travail.pdf
                 attach-name: "travail"
                 attach-text: '📎 [Travail (archive zip)](%ARTIFACT_URL%)'    
