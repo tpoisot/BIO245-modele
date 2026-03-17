@@ -1,8 +1,5 @@
 name: Vérification du code (pull request)
 on:
-    push:
-        branches-ignore:
-            - 'main'
     pull_request:
 
 jobs:
