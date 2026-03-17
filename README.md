@@ -30,6 +30,27 @@ _Vous devrez mettre à jour les options dans le menu "Pages" - la source doit ê
 
 ![Capture d'écran de la création du nouveau dépôt](.assets/scrot-pages.png)
 
+---
+
+⚠️ **Important**: Ce projet a été mis à jour pour le devoir 3.
+
+Les pull request font maintenant une vérification du code:
+
+![Code vérification](.assets/scrot-verif.png)
+
+Vous pouvez attendre que cette vérification soit faite avant de merger la pull
+request. Cette vérification est _plus stricte_ que la génération du PDF, et
+renvoie un message en cas d'erreur. Si cette vérification se termine avec
+succès, votre code peut s'éxécuter. Si cette vérification échoue, vous pouvez
+cliquer sur l'erreur pour voir la raison.
+
+En parallèle, la pull request va aussi générer le PDF tel qu'il serait produit
+après avoir été inclus dans la branche vers laquelle vous envoyez les
+changements. Quand la génération du PDF est terminée, un nouveau message sera
+ajouté à la pull request.
+
+![Code vérification](.assets/scrot-compile.png)
+
 <!-- Vous devrez supprimer jusqu'à, et incluant ce commentaire -->
 
 ## Organisation du projet
