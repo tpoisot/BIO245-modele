@@ -86,7 +86,7 @@ jobs:
               with:
                 message-id: REPORT_ERROR
                 delete-on-status: success
-                message-failure: "⚠️ Le PDF ne peut pas être compilé"
+                message-failure: "🫠 Le PDF ne peut pas être compilé"
             - name: Prepare the web pages
               id: deployment
               uses: actions/upload-pages-artifact@v3
