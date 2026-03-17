@@ -2,6 +2,7 @@ name: Compilation
 on:
     push:
         branches: ["main"]
+    pull_request:
 
 jobs:
     compilation:
@@ -60,10 +61,19 @@ jobs:
             - name: "Moves the PDF to the docs/ folder"
               run: mv travail.pdf docs/travail.pdf
             - name: Upload the PDF
+              id: pdf-upload
               uses: actions/upload-artifact@v4
               with:
                   name: Travail
                   path: docs/travail.pdf
+            - name: "Comment on PR with the pdf"
+              uses: mshick/add-pr-comment@v3
+              with:
+                message-id: REPORT_SUCCESS
+                message: "PDF"
+                attach-path: docs/travail.pdf
+                attach-name: "Travail (format PDF)"
+                attach-text: '📎 [%ATTACH_NAME%](%ARTIFACT_URL%)'
             - name: Prepare the web pages
               id: deployment
               uses: actions/upload-pages-artifact@v3
@@ -80,5 +90,6 @@ jobs:
             url: ${{ steps.deployment.outputs.page_url }}
         steps:
             - name: Deploy to GitHub pages
+              if: ${{ github.event_name != 'pull_request' }}
               id: deployment
               uses: actions/deploy-pages@v4
