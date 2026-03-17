@@ -75,7 +75,11 @@ jobs:
               uses: mshick/add-pr-comment@v3
               with:
                 message-id: REPORT_ON_COMPILATION
-                message: "🤗 **Le travail a été compilé** - vérifiez le statut de la vérification du code, pour confirmer que le code n'a pas émis de message d'erreur."
+                message: |
+                    🤗 **Le travail a été compilé**
+                    
+                    Vérifiez le statut de la vérification du code, pour confirmer que le code n'a pas émis de message d'erreur.
+                    
                 attach-path: docs/travail.pdf
                 attach-name: "travail"
                 attach-text: '📎 [Travail (archive zip)](%ARTIFACT_URL%)'    
