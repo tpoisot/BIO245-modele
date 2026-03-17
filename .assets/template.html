@@ -14,6 +14,20 @@
     $endif$
     <title>$if(title)$$title$$endif$</title>
 
+    <style>
+        .mainlink {
+            background-color: #fcfcfc;
+            border: 1px solid #a0a0a0;
+            border-radius: 3px;
+            padding: 1em;
+            width: 100%;
+            text-align: center;
+            display: block;
+            margin: 2em 0em;
+            margin-bottom: 5em;
+        }
+    </style>
+
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
 </head>
@@ -24,7 +38,17 @@
     <h1>$title$</h1>
     $endif$
 
-    $body$
+    <section class="auteurs">
+    $for(auteurs)$
+    <div class="auteur">$auteurs.prenom$ $auteurs.nom$</div>
+    $endfor$
+    </section>
+
+    <a href="travail.pdf" class="mainlink">Version PDF</a>
+
+    <article>
+        $body$
+    </article>
 
 </body>
 

@@ -34,7 +34,7 @@ jobs:
             - name: "Run pandoc to generate the typst file "
               run: pandoc travail.md -o travail.typ --template=.assets/template.typ
             - name: "Run pandoc to generate the html file"
-              run: pandoc travail.md -o docs/index.html -t .assets/template.html --citeproc --bibliography=references.bib --csl=https://raw.githubusercontent.com/citation-style-language/styles/refs/heads/master/american-physics-society.csl
+              run: pandoc travail.md -o docs/index.html --template=.assets/template.html --citeproc -M reference-section-title=Bibliographie --bibliography=references.bib --csl=https://raw.githubusercontent.com/citation-style-language/styles/refs/heads/master/american-physics-society.csl
             - name: "Get the Libertinus fonts"
               run: |
                   wget https://github.com/alerque/libertinus/releases/download/v7.051/Libertinus-7.051.zip
