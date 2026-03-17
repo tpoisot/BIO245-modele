@@ -26,6 +26,10 @@ _Les informations doivent être les suivantes. Les tags `bio2045` et `h26-devoir
 
 ![Capture d'écran de la création du nouveau dépôt](.assets/scrot-options.png)
 
+_Vous devrez mettre à jour les options dans le menu "Pages" - la source doit être GitHub Actions_
+
+![Capture d'écran de la création du nouveau dépôt](.assets/scrot-pages.png)
+
 <!-- Vous devrez supprimer jusqu'à, et incluant ce commentaire -->
 
 ## Organisation du projet
