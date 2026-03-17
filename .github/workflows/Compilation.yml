@@ -87,6 +87,7 @@ jobs:
                   path: docs/
     publication:
         runs-on: ubuntu-latest
+        continue-on-error: true
         needs: compilation
         permissions:
             pages: write
