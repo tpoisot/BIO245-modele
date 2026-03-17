@@ -1,4 +1,4 @@
-name: Compilation
+name: Vérification du code (pull request)
 on:
     push:
         branches-ignore:
