@@ -76,9 +76,9 @@ jobs:
               uses: mshick/add-pr-comment@v3
               with:
                 message-id: REPORT_SUCCESS
-                message: "PDF"
+                message: "🤗 - le travail a été compilé avec succès"
                 attach-path: docs/travail.pdf
-                attach-name: "Travail (format PDF)"
+                attach-name: "PDF compilé (au format zip)"
                 attach-text: '📎 [%ATTACH_NAME%](%ARTIFACT_URL%)'
             - name: Prepare the web pages
               id: deployment
@@ -87,7 +87,7 @@ jobs:
                   path: docs/
     publication:
         runs-on: ubuntu-latest
-        continue-on-error: true
+        if: github.event_name == 'push'
         needs: compilation
         permissions:
             pages: write
