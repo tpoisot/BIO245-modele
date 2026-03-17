@@ -2,7 +2,12 @@ name: Compilation
 on:
     push:
         branches: ["main"]
-    pull_request:
+    pull_request_target:
+        branches: ["master"]
+
+permissions:
+    issues: write
+    pull-requests: write
 
 jobs:
     compilation:
@@ -67,6 +72,7 @@ jobs:
                   name: Travail
                   path: docs/travail.pdf
             - name: "Comment on PR with the pdf"
+              if: ${{ github.event_name == 'pull_request_target' }}
               uses: mshick/add-pr-comment@v3
               with:
                 message-id: REPORT_SUCCESS
