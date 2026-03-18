@@ -53,12 +53,15 @@ end
 
 # La figure suivante représente des valeurs aléatoires:
 
-hist(randn(100))
+hist(randn(1000), color=:grey80)
 
 # # Discussion
 
-# On peut aussi citer des références dans le document `references.bib`,
-# @ermentrout1993cellular -- la bibliographie sera ajoutée automatiquement à la
-# fin du document. Le format de la bibliographie est American Physics Society,
-# et les références seront correctement présentées dans ce format. Vous ne
-# devez/pouvez pas éditer la bibliographie à la main.
+# On peut aussi citer des références dans le document `references.bib`, qui doit
+# être au format BibTeX. Les références peuvent être citées dans le texte avec
+# `@` suivi de la clé de citation. Par exemple: @ermentrout1993cellular -- la
+# bibliographie sera ajoutée automatiquement à la fin du document.
+
+# Le format de la bibliographie est American Physics Society, et les références
+# seront correctement présentées dans ce format. Vous ne devez/pouvez pas éditer
+# la bibliographie à la main.
