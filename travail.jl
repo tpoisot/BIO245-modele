@@ -15,7 +15,7 @@
 # # Introduction
 
 # # Présentation du modèle
-
+ 
 # # Implémentation
 
 # ## Packages nécessaires
